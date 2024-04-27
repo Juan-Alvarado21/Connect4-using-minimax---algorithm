@@ -217,6 +217,8 @@ function iniciarJuego() {
             break;
 
             case 2:
+                j1EsPersona = false;
+                j2EsPersona = false;    
                 // Computadora vs Computadora
                 function computadoraJuega(jugador) {
                     let [valor, mov] = alphaBeta_minimax(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY, tab, prof, jugador);
@@ -269,47 +271,58 @@ function mensajeTerminado() {
     salida.innerHTML = output;
 }
 
+
 function pressed(objeto) {
-    if (corriendo) {
-        if (corriendo && modoJuego === 2) {
-            console.log("El juego está en modo computadora vs computadora. No se permite interacción manual.");
-            return; // No hacer nada más ya que es computadora vs computadora
-        }
-        
+    if (corriendo && modoJuego !== 2) { // No se accepta presionar un botón, si el juego ha terminado, o son dos computadoras
         let z = parseInt(objeto.id);
         z--;
         let xi = (z % tab.tamX);
         let yi = Math.floor(z / tab.tamX);
         let p1 = { x: xi, y: yi };
-
-        if (modoJuego === 1) { // Ambos son personas
-            let movValido = tab.insertar(p1, estado);
+        // ambos son personas
+        if (modoJuego === 1) {
+            let movValido = tab.insertar(p1.x, estado);
             if (movValido) {
                 refresh();
-                estado = estado === Estado.j1 ? Estado.j2 : Estado.j1;
-            } else {
-                console.log("Movimiento inválido");
+                if (estado === Estado.j1) {
+                    estado = Estado.j2;
+                }
+                else {
+                    estado = Estado.j1;
+                }
             }
-        } else { // Modo persona vs computadora
-            let movValido = tab.insertar(p1, estado);
+            else {
+                console.log("Columna invalida");
+            }
+        }
+        else {
+            // 1 es persona
+            let movValido = tab.insertar(p1.x, estado);
             if (movValido) {
-                refresh();
-                let numJugador = j1EsPersona ? 0 : 1; // Determina qué jugador es la computadora
+                let numJugador;
+                if (j1EsPersona) {
+                    // Computadora es min
+                    numJugador = 0;
+                }
+                else {
+                    // computadora es max
+                    numJugador = 1;
+                }
                 window.setTimeout(function () {
                     const [_, mov] = alphaBeta_minimax(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY, tab, prof, numJugador);
                     if (mov !== null) {
                         tab.insertar(mov, Estado.j2);
-                        refresh();
-                    } else {
-                        console.log("No hay más movimientos para la computadora");
                     }
+                    else {
+                        console.log("Ya no existen más movimientos para la computadora");
+                    }
+                    refresh();
                 }, 0);
             }
         }
-    } else {
-        console.log("El juego ha terminado o está en modo automático y no acepta interacciones.");
     }
 }
+
 
 
 
