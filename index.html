@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conecta 4</title>
+    <link rel="stylesheet" href="config.css" />
+  </head>
+  <body>
+    <h1>Connect 4 minimax α-ß</h1>
+    <div id="grid-container">
+      <div id="contenedor" class="caja"></div>
+    </div>
+  </body>
+  <input type="radio" name="prueba" id="hh" value="hh" />Humano vs Humano<br />
+  <input type="radio" name="prueba" id="hc" value="hc" checked />Humano vs
+  Agente<br />
+  <input type="radio" name="prueba" id="cc" value="cc" checked />Agente vs
+  Agente<br />
+  <!--
+	<input type="radio" name="prueba" id="cc" value="cc">Agente vs Agente<br>
+	-->
+
+  <button onclick="iniciarJuego()">Iniciar juego</button>
+
+  <div id="mensaje"></div>
+
+  <script src="out.js"></script>
+</html>

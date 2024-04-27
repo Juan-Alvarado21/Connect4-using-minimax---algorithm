@@ -1,0 +1,161 @@
+h1 {
+	font-family: 'Georgia', serif;
+	color: #5B62FF;
+	font-size: 36px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.container {
+    display: flex; /* Activa Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; 
+}
+
+button {
+    background-color: #ffdd57; 
+    color: black;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+
+button:hover {
+    background-color: #5B62FF; 
+}
+
+
+
+
+.estilo {
+    background-color: #ffffff; /* Color de fondo por defecto */
+    font-size: 100px; 
+    border: 5px solid #1500ffa5; 
+    padding: 20px 20px; 
+    cursor: pointer;
+    background-size: cover; 
+    border-radius: 30px; 
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+#grid-container {
+    border: 10px solid #1500ffa5; 
+    padding: 20px; 
+    border-radius: 15px; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #dbdada; 
+
+		width: 90%; 
+		max-width: 400px; 
+		margin: auto; 
+		height: 340px; 
+}
+
+
+
+.estilo:hover {
+	background-color: #99c1f1;
+}
+.estilo:active {
+	background-color: #5B9BE6;
+}
+	
+.rojo {
+	background-color: red;
+}
+.azul {
+	background-color: blue;
+}
+.blanco {
+	background-color: white;
+}
+.negro {
+	background-color: black;
+}
+.verde {
+	background-color: green;
+}
+.amarillo {
+	background-color: yellow;
+}
+
+.rojo:hover {
+	background-color: #99c1f1;
+}
+.azul:hover {
+	background-color: #99c1f1;
+}
+.blanco:hover {
+	background-color: #99c1f1;
+}
+.negro:hover {
+	background-color: #99c1f1;
+}
+.verde:hover {
+	background-color: #99c1f1;
+}
+.amarillo:hover {
+	background-color: #99c1f1;
+}
+
+.rojo:active {
+	background-color: #5B9BE6;
+}
+.azul:active {
+	background-color: #5B9BE6;
+}
+.blanco:active {
+	background-color: #5B9BE6;
+}
+.negro:active {
+	background-color: #5B9BE6;
+}
+.verde:active {
+	background-color: #5B9BE6;
+}
+.amarillo:active {
+	background-color: #5B9BE6;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+#mensaje {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #1500ffa5;
+    font-weight: 700;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap; 
+    width: 0; 
+    animation: typing 4s steps(60, end) forwards; 
+	text-align: center; 
+}
+
+
